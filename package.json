@@ -1,0 +1,30 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --ignore ./cache/ --ignore ./src/data app.js",
+    "start:prod": "node app.js",
+    "debug": "nodemon --ignore ./cache/ --ignore ./src/data --inspect=0.0.0.0 app.js",
+    "start:tunnel": "concurrently --kill-others  -n tunnel,server -c red,yellow './scripts/ssh-tunnel.sh' 'yarn run start'",
+    "debug:tunnel": "concurrently --kill-others  -n tunnel,server -c red,yellow './scripts/ssh-tunnel.sh' 'yarn run debug'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/bolt": "^3.9.0",
+    "concurrently": "^7.0.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.2.1",
+    "express-winston": "^4.2.0",
+    "mongoose": "^6.5.4",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.3",
+    "request": "^2.88.2",
+    "stream-json": "^1.7.4",
+    "winston": "^3.6.0"
+  }
+}
